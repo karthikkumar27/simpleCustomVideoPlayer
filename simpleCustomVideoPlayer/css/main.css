@@ -1,17 +1,127 @@
+.main-container {
+    margin-top: 50px;
+    padding: 20px 0;
+}
 
+.media-player {
+    position: relative;
+}
 
+.media-player video {
+    width: 100%;
+}
 
+.media-controls {
+    position: absolute;
+    background: #000;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+}
 
+.media-controls progress {
+    height: 4px;
+    float: left;
+    width: calc(100% - 6*20px - 10px);
+    margin: 7px 5px 0 5px;
+}
 
+.media-controls button[disabled] {
+    color: #999;
+}
 
+.media-controls button {
+    width: 20px;
+    height: 20px;
+    background: #000;
+    float: left;
+    color: #fff;
+    text-align: center;
+    line-height: 16px;
+    border: 0;
+    padding: 0;
+}
 
+.mute i.glyphicon-volume-off {
+    color: #999;
+}
 
+.video-overlay {
+    position: absolute;
+    z-index: 9;
+    bottom: 26px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
+.video-overlay:hover {
+    cursor: pointer;
+}
 
+.video-overlay:not(.overlay) i {
+    display: none;
+}
 
+.video-overlay.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #fff;
+}
 
+.media-play-list {
+    background: #777;
+    color: #fff;
+    min-height: 321px;
+}
 
+#media-play-list h2 {
+    border-bottom: 1px solid white;
+    padding: 5px 0;
+}
 
+.play-list {
+    padding: 0;
+    margin: 0;
+}
 
+.play-list li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
+.play-item {
+    color: #fff;
+    font-weight: bold;
+}
 
+.play-item.activeVideo {
+    color: #000;
+}
+
+.video-info .video-title {
+    float: left;
+}
+
+.video-info .like-dislike {
+    float: right;
+    margin-top: 30px;
+}
+
+.video-info button {
+    margin-left: 20px;
+    background: #0000;
+    border: 0;
+}
+
+.video-info button.like {
+    color: green;
+}
+
+.video-info button.dislike {
+    color: red;
+}

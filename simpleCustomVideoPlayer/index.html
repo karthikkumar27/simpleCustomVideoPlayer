@@ -17,7 +17,8 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -27,21 +28,61 @@
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <video width="320" height="240" controls autoplay poster="/img/scene-preview.jpg">
-                  <source src="/mov/scene.mp4" type="video/mp4">
-                  <source src="/mov/scene.webm" type="video/webm">
-                  Sorry, your browser doesn't support HTML5 video.
-                </video>
+    <div class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id='media-player' class="media-player">
+                        <video id='media-video' controls>
+                            <source src='videos/small.mp4' type='video/mp4'>
+                            <source src='videos/small.webm' type='video/webm'>
+                        </video>
+                        <div id='video-overlay' class="video-overlay overlay" onclick='togglePlayPause();'><i
+                                class='glyphicon glyphicon-play'></i></div>
+                        <div id='media-controls' class="media-controls">
+                            <button id='play-button' class='play' title='Play' onclick='playVideo();'><i
+                                    class='glyphicon glyphicon-play'></i></button>
+                            <button id='pause-button' class='pause' title='Pause' onclick='pauseVideo();'
+                                disabled="disabled"><i class='glyphicon glyphicon-pause'></i></button>
+                            <button id='replay-button' class='replay' title='replay' onclick='replayMedia();'><i
+                                    class='glyphicon glyphicon-repeat'></i></button>
+                            <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>
+                            <button id='volume-inc-button' class='volume-plus' title='Increase Volume'
+                                onclick='changeVolume("+");'><i class='glyphicon glyphicon-volume-up'></i></button>
+                            <button id='volume-dec-button' class='volume-minus' title='Decrease Volume'
+                                onclick='changeVolume("-");'><i class='glyphicon glyphicon-volume-down'></i></button>
+                            <button id='mute-button' class='unmute' title='Mute' onclick='toggleMute("true");'><i
+                                    class='glyphicon glyphicon-volume-off'></i></button>
+                        </div>
+                    </div>
+                    <div class="video-info clearfix">
+                        <h1 id="video-title" class="video-title">Lego Toy</h1>
+                        <div class="like-dislike">
+                            <button id='like-button' class='like' title='Like'
+                                onclick='likeUnlikeVideo("set","like");'><i class='glyphicon glyphicon-thumbs-up'></i>
+                                <span>0</span></button>
+                            <button id='dislike-button' class='dislike' title='dislike'
+                                onclick='likeUnlikeVideo("set","dislike");'><i
+                                    class='glyphicon glyphicon-thumbs-down'></i> <span>0</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 media-play-list">
+                    <div id='media-play-list'>
+                        <h2>Play list</h2>
+                        <ul id='play-list' class="play-list">
+                            <li><a href="javascript:;" class='play-item activeVideo' data-videoid="vdo1"
+                                    onclick='loadVideo("videos/small.webm", "small.mp4");'>Lego Toy</a></li>
+                            <li><a href="javascript:;" class='play-item' data-videoid="vdo2"
+                                    onclick='loadVideo("videos/parrots.webm", "parrots.mp4");'>Parrots</a></li>
+                            <li><a href="javascript:;" class='play-item' data-videoid="vdo3"
+                                    onclick='loadVideo("videos/grass.webm", "grass.mp4");'>Grass</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
